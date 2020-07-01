@@ -19,6 +19,7 @@ object GetRevenuePerOrder {
       map(oi => oi._1 + "," + oi._2)
 
     revenuePerOrder.saveAsTextFile(args(2)) //args(2): output path
+    revenuePerOrder.take(10).foreach(println)
   }
 
 }

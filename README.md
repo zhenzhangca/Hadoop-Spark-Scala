@@ -31,5 +31,14 @@ Run `sbt package` to build jar file
 Then you will find the jar file under `scalasparkdemo/target/scala-2.11/classes ...`  
 Run `sbt "run-main retail_db.GetRevenuePerOrder local <input_path> <output_path>"`  
 The result is same as running with IDEA.  
+###Setup Environment variables on Mac/Linux
+Why??? Regularly, go to the `bin` directory of `spark-xxx-bin-hadoop2.7`, then run `./spark-shell`, spark will be running.  
+Setting up environment variables is to run spark-submit, spark-shell from anywhere on the local machine using jar file.  
+How??? Navigate to the directory of `spark-xxx-bin-hadoop2.7` -> Setup new environment variable SPARK_HOME and update PATH.  
+Run `export SPARK_HOME = /Users/XXX/spark-3.0.0-bin-hadoop2.7`  and `export PATH=$PATH:$SPARK_HOME/bin`  
+Go to any directory and run spark-shell to validate.  
+However,  when you restart the terminal, run `spark-shell`, `command not found`, because the envs are temporarily exported. In order to make them permanently, we have to add them into `.bash_profile`file.  
+`ls -altr|grep profile`->`vi .bash_profile`...
+
 
 
